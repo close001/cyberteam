@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Team - Dosya İndirme ve Forum</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0d0d0d; /* Daha koyu bir arka plan */
+            color: #00ff99; /* Yeşil metin */
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            opacity: 0;
+            transition: opacity 3s ease-in-out; /* Sayfa açıldığında yavaşça görünür */
+        }
+        h1 {
+            color: #00ff99;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        .download-section, .forum-section {
+            margin-top: 50px;
+            border: 2px solid #00ff99; /* Yeşil çerçeve */
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #1a1a1a; /* Daha koyu bir arka plan */
+        }
+        .download-link {
+            display: inline-block;
+            background-color: #00ff99;
+            color: #1a1a1a;
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            position: relative;
+            transition: transform 0.1s ease; /* Tıklama animasyonu */
+        }
+        .download-link:active {
+            transform: scale(0.95); /* Tıklanınca küçülür */
+        }
+        .download-link:hover {
+            background-color: #007755;
+            color: #fff;
+        }
+        .hidden-text {
+            position: absolute;
+            top: 50%;
+            left: 105%;
+            transform: translateY(-50%);
+            opacity: 0;
+            font-size: 12px;
+            color: #ccc;
+            transition: opacity 2s ease-in-out;
+        }
+        .visible {
+            opacity: 1;
+        }
+        .about-section {
+            margin-top: 50px;
+            font-size: 16px;
+            color: #ccc;
+        }
+        /* Forum için stil ayarları */
+        #posts {
+            margin-bottom: 20px;
+        }
+        #postForm {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        #postInput {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            background-color: #00ff99;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        /* Haberler butonu */
+        .news-button {
+            display: inline-block;
+            background-color: #ff5733; /* Kırmızı tonları */
+            color: #fff;
+            padding: 10px 20px;
+            margin-top: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        /* Daha fazla.. butonu */
+        .cyberlogger-button {
+            display: inline-block;
+            background-color: #0077cc; /* Mavi tonları */
+            color: #fff;
+            padding: 10px 20px;
+            margin-top: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cyber Team - Dosya İndirme</h1>
+    <p>Cyber Team tarafından geliştirilen yazılımları aşağıdaki bağlantılardan indirebilirsiniz.</p>
+
+    <div class="download-section">
+        <!-- Roblox.py -->
+        <a href="https://www.mediafire.com/file/mpzicb82coo0jzh/roblox.py/file?dkey=z3pfctb7moe&r=1953" class="download-link" id="roblox-link">Roblox.py</a>
+        <span class="hidden-text" id="roblox-text">Close tarafından yapılan python kodu</span>
+
+        <!-- Mouse Kilitleyici -->
+        <a href="https://www.mediafire.com/file/zz8f2cs0llqlvn3/roblox.vbs/file?dkey=jmwaus6efaw&r=1865" class="download-link" id="mouselock-link">Mouse Kilitleyici</a>
+        <span class="hidden-text" id="mouselock-text">Close tarafından yapılmış mouse lock kodu</span>
+
+        <!-- Sistem Kilitleyici -->
+        <a href="https://www.mediafire.com/file/xwxligyyczr9wpi/sistemkilitcyber.bat/file?dkey=kybxnhe507a&r=370" class="download-link" id="systemlock-link">Sistem Kilitleyici</a>
+        <span class="hidden-text" id="systemlock-text">Sistemi kilitleyen batch dosyası</span>
+
+        <!-- FTP Butonu -->
+        <a href="https://www.mediafire.com/file/0uuk3e53twaaq8k/ftp.bat/file?dkey=yznogrgnsuq&r=999" class="download-link" id="ftp-link">FTP</a>
+        <span class="hidden-text" id="ftp-text">FTP bağlantısı için batch dosyası</span>
+
+        <!-- Daha fazla.. Butonu -->
+        <a href="dahafazla.html" class="cyberlogger-button">Daha fazla..</a>
+    </div>
+
+    <div class="about-section">
+        <h2>Cyber Team Hakkında</h2>
+        <p>Cyber Team, 2002 yılında Close ve Anonymous tarafından kuruldu. O zamandan bu yana çeşitli siber güvenlik projeleri ve yazılımlar geliştirmiştir. Hedefleri, dijital dünyada özgürlüğü korumak ve teknolojiye yeni bakış açıları kazandırmaktır.</p>
+    </div>
+
+    <!-- Forum Bölümü -->
+    <div class="forum-section">
+        <h2>Forum</h2>
+        <div id="posts"></div>
+        <form id="postForm">
+            <input type="text" id="postInput" placeholder="Mesajınızı yazın..." required>
+            <button type="submit">Gönder</button>
+        </form>
+        <!-- Haberler butonu -->
+        <a href="haberler.html" class="news-button">Haberler</a>
+    </div>
+
+    <script>
+        // Sayfa yüklendiğinde tüm içerik yavaşça görünür
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+
+        // Fonksiyonları butonlar için ortak kullan
+        function setupHoverText(linkId, textId) {
+            const link = document.getElementById(linkId);
+            const text = document.getElementById(textId);
+            link.addEventListener('mousedown', function() {
+                text.classList.add('visible');
+                setTimeout(function() {
+                    text.classList.remove('visible');
+                }, 3000); // 3 saniye sonra kaybolur
+            });
+        }
+
+        // Tüm butonları ayarla
+        setupHoverText('roblox-link', 'roblox-text');
+        setupHoverText('mouselock-link', 'mouselock-text');
+        setupHoverText('systemlock-link', 'systemlock-text');
+        setupHoverText('ftp-link', 'ftp-text');
+
+        // Forum için JavaScript
+        const postForm = document.getElementById('postForm');
+        const postInput = document.getElementById('postInput');
+        const posts = document.getElementById('posts');
+
+        const username = prompt("Kullanıcı adınızı girin:"); // Kullanıcı adı al
+
+        postForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Formun varsayılan davranışını engelle
+            const postText = postInput.value; // Giriş alanındaki metni al
+            const postElement = document.createElement('div'); // Yeni bir div oluştur
+            postElement.textContent = `${username}: ${postText}`; // Kullanıcı adıyla birlikte metni ayarla
+            posts.appendChild(postElement); // Yeni mesajı ekrana ekle
+            postInput.value = ''; // Giriş alanını temizle
+        });
+    </script>
+
+</body>
+</html>
