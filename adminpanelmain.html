@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0d0d0d; /* Daha koyu bir arka plan */
+            color: #00ff99; /* Yeşil metin */
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            overflow: hidden; /* Kaydırmayı önlemek için */
+        }
+
+        .loading-text {
+            font-size: 24px;
+            animation: slide 3s infinite; /* Animasyon */
+        }
+
+        @keyframes slide {
+            0% { transform: translateY(-10px); opacity: 0; }
+            50% { transform: translateY(10px); opacity: 1; }
+            100% { transform: translateY(-10px); opacity: 0; }
+        }
+
+        .error-message {
+            display: none;
+            font-size: 20px;
+            margin-top: 20px;
+            color: #ff5733; /* Kırmızı hata mesajı */
+        }
+
+        .contact-link {
+            margin-top: 20px;
+            color: #00ff99;
+            text-decoration: none;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loading-text" id="loading-text">Yükleniyor.</div>
+    <div class="error-message" id="error-message"></div>
+
+    <script>
+        const loadingMessages = ["Yükleniyor.", "Yükleniyor..", "Yükleniyor..."];
+        let messageIndex = 0;
+        let loadingDuration = 0;
+        const loadingTextElement = document.getElementById('loading-text');
+        const errorMessageElement = document.getElementById('error-message');
+
+        const loadingInterval = setInterval(() => {
+            if (loadingDuration < 10) {
+                loadingTextElement.textContent = loadingMessages[messageIndex];
+                messageIndex = (messageIndex + 1) % loadingMessages.length; // Mesajları döngü
+                loadingDuration++;
+            } else {
+                clearInterval(loadingInterval); // Döngüyü durdur
+                showError();
+            }
+        }, 1000); // 1 saniye aralıklarla
+
+        function showError() {
+            loadingTextElement.style.display = 'none'; // Yükleniyor metnini gizle
+            errorMessageElement.innerHTML = 'Admin Panel Error<br>Bu Özellik Close Adlı Owner Tarafından Kapatıldı<br><a href="https://github.com/FrostGamer001" class="contact-link">İletişime geçmek için tıklayın</a>';
+            errorMessageElement.style.display = 'block'; // Hata mesajını göster
+        }
+    </script>
+</body>
+</html>
