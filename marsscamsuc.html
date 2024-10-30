@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+        }
+        .container {
+            text-align: center;
+            color: darkgreen;
+            font-size: 24px;
+            opacity: 0;
+            animation: fadeIn 3s forwards 20s;
+        }
+        #downloadBtn {
+            display: none;
+            background-color: #7e57c2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            animation: fadeIn 2s forwards 23s;
+        }
+        #downloadBtn:hover {
+            background-color: #6c47b3;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="displayInfo">
+        <!-- Username, password, and download button will be shown here -->
+    </div>
+
+    <script>
+        // Get the username and password from localStorage
+        const username = localStorage.getItem('username') || 'Unknown User';
+        const password = localStorage.getItem('password') || 'No Password';
+
+        // Function to create the file and trigger the download
+        function downloadFile() {
+            const text = `Kullanıcı Adı: ${username}\nŞifre: ${password}`;
+            const blob = new Blob([text], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = 'marssuc.txt';
+            link.click();
+        }
+
+        // Display the username, password, and download button after 20 seconds
+        setTimeout(() => {
+            document.getElementById('displayInfo').innerHTML = `
+                Kullanıcı Adı: ${username} <br> Şifre: ${password} <br>
+                <button id="downloadBtn" onclick="downloadFile()">Download</button>
+            `;
+            document.getElementById('downloadBtn').style.display = 'block';
+        }, 20000);
+    </script>
+</body>
+</html>
