@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Team - Daha Fazla</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0d0d0d; /* Daha koyu bir arka plan */
+            color: #00ff99; /* Yeşil metin */
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            opacity: 0;
+            transition: opacity 3s ease-in-out; /* Sayfa açıldığında yavaşça görünür */
+        }
+        h1 {
+            color: #00ff99;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        .download-section {
+            margin-top: 50px;
+            border: 2px solid #00ff99; /* Yeşil çerçeve */
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #1a1a1a; /* Daha koyu bir arka plan */
+        }
+        .download-link {
+            display: inline-block;
+            background-color: #00ff99;
+            color: #1a1a1a;
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            position: relative;
+            transition: transform 0.1s ease; /* Tıklama animasyonu */
+        }
+        .download-link:active {
+            transform: scale(0.95); /* Tıklanınca küçülür */
+        }
+        .download-link:hover {
+            background-color: #007755;
+            color: #fff;
+        }
+        .hidden-text {
+            position: absolute;
+            top: 50%;
+            left: 105%;
+            transform: translateY(-50%);
+            opacity: 0;
+            font-size: 12px;
+            color: #ccc;
+            transition: opacity 2s ease-in-out;
+        }
+        .visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cyber Team - Daha Fazla</h1>
+    <p>Aşağıdaki bağlantılardan daha fazla yazılım ve kaynak indirebilirsiniz.</p>
+
+    <div class="download-section">
+        <!-- Butonlar ve açıklamaları -->
+        <a href="https://www.mediafire.com/file/example1" class="download-link" id="example1-link">Örnek 1</a>
+        <span class="hidden-text" id="example1-text">Bu, örnek 1 açıklamasıdır.</span>
+
+        <a href="https://www.mediafire.com/file/example2" class="download-link" id="example2-link">Örnek 2</a>
+        <span class="hidden-text" id="example2-text">Bu, örnek 2 açıklamasıdır.</span>
+
+        <a href="https://www.mediafire.com/file/example3" class="download-link" id="example3-link">Örnek 3</a>
+        <span class="hidden-text" id="example3-text">Bu, örnek 3 açıklamasıdır.</span>
+
+        <a href="https://www.mediafire.com/file/example4" class="download-link" id="example4-link">Örnek 4</a>
+        <span class="hidden-text" id="example4-text">Bu, örnek 4 açıklamasıdır.</span>
+
+        <a href="https://www.mediafire.com/file/example5" class="download-link" id="example5-link">Örnek 5</a>
+        <span class="hidden-text" id="example5-text">Bu, örnek 5 açıklamasıdır.</span>
+
+        <a href="https://www.mediafire.com/file/example6" class="download-link" id="example6-link">Örnek 6</a>
+        <span class="hidden-text" id="example6-text">Bu, örnek 6 açıklamasıdır.</span>
+
+        <a href="https://www.mediafire.com/file/example7" class="download-link" id="example7-link">Örnek 7</a>
+        <span class="hidden-text" id="example7-text">Bu, örnek 7 açıklamasıdır.</span>
+
+        <a href="https://www.mediafire.com/file/example8" class="download-link" id="example8-link">Örnek 8</a>
+        <span class="hidden-text" id="example8-text">Bu, örnek 8 açıklamasıdır.</span>
+
+        <a href="https://www.mediafire.com/file/example9" class="download-link" id="example9-link">Örnek 9</a>
+        <span class="hidden-text" id="example9-text">Bu, örnek 9 açıklamasıdır.</span>
+
+        <a href="https://www.mediafire.com/file/example10" class="download-link" id="example10-link">Örnek 10</a>
+        <span class="hidden-text" id="example10-text">Bu, örnek 10 açıklamasıdır.</span>
+    </div>
+
+    <script>
+        // Sayfa yüklendiğinde tüm içerik yavaşça görünür
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+
+        // Fonksiyonları butonlar için ortak kullan
+        function setupHoverText(linkId, textId) {
+            const link = document.getElementById(linkId);
+            const text = document.getElementById(textId);
+            link.addEventListener('mousedown', function() {
+                text.classList.add('visible');
+                setTimeout(function() {
+                    text.classList.remove('visible');
+                }, 3000); // 3 saniye sonra kaybolur
+            });
+        }
+
+        // Tüm butonları ayarla
+        for (let i = 1; i <= 10; i++) {
+            setupHoverText(`example${i}-link`, `example${i}-text`);
+        }
+    </script>
+
+</body>
+</html>
