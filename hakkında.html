@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Team - Üyeler</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0d0d0d; /* Daha koyu bir arka plan */
+            color: #00ff99; /* Yeşil metin */
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            opacity: 0;
+            transition: opacity 3s ease-in-out; /* Sayfa açıldığında yavaşça görünür */
+        }
+        h1 {
+            color: #00ff99;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        .members-section {
+            margin-top: 50px;
+            border: 2px solid #00ff99; /* Yeşil çerçeve */
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #1a1a1a; /* Daha koyu bir arka plan */
+        }
+        .member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .member img {
+            width: 40px; /* İkon boyutu */
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cyber Team - Üyeler</h1>
+
+    <div class="members-section">
+        <h2>Üyeler</h2>
+        
+        <div class="member">
+            <img src="discorddown.png" alt="Close"/>
+            <span>Close</span>
+        </div>
+        
+        <div class="member">
+            <img src="discorddown.png" alt="Syrox"/>
+            <span>Syrox</span>
+        </div>
+        
+    </div>
+
+    <script>
+        // Sayfa yüklendiğinde tüm içerik yavaşça görünür
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
+
+</body>
+</html>
