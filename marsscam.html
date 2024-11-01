@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öğrenci Girişi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #7e57c2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6c47b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Öğrenci Girişi</h2>
+        <input type="text" id="username" placeholder="Üye Girişi" required>
+        <button onclick="submitName()">Devam</button>
+    </div>
+
+    <script>
+        function submitName() {
+            const name = document.getElementById('username').value;
+            localStorage.setItem('username', name); // Save the name locally
+            window.location.href = 'mars.html'; // Redirect to the second page
+        }
+    </script>
+</body>
+</html>
