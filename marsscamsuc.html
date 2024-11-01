@@ -45,7 +45,7 @@
 </head>
 <body>
     <div class="container" id="displayInfo">
-        <!-- Username, password, and download button will be shown here -->
+        <!-- Messages and download button will be shown here -->
     </div>
 
     <script>
@@ -63,14 +63,21 @@
             link.click();
         }
 
-        // Display the username, password, and download button after 20 seconds
+        // Show the first message after 20 seconds
+        setTimeout(() => {
+            document.getElementById('displayInfo').innerHTML = `
+                Bu Hesabı Kayıt Ettik. <br> Yarın Toplam Puanınız Belli Olucak! 
+            `;
+        }, 20000);
+
+        // Display the username, password, and download button after 40 seconds
         setTimeout(() => {
             document.getElementById('displayInfo').innerHTML = `
                 Kullanıcı Adı: ${username} <br> Şifre: ${password} <br>
                 <button id="downloadBtn" onclick="downloadFile()">Download</button>
             `;
             document.getElementById('downloadBtn').style.display = 'block';
-        }, 20000);
+        }, 40000);
     </script>
 </body>
 </html>
